@@ -2,5 +2,125 @@
 
 ## Deskripsi Projek
 * Buatlah rancangan UI sesuai dengan studi kasus yang telah dikerjakan pada materi pemrograman terstruktur dengan menggunakan aplikasi Pencil (Aplikasi Kalkulator)
-Untuk membuat tampilan UI nya kita bisa memakai aplikasi Pencil bisa di download pada [link ini](https://pencil.id.softonic.com/),pada aplikasi ini kita akan mmebuat tampilan UI tampilan kalkulator yang nanti hasil nya seperti pada ![gambar ini](file:///D:/BPPTIK/TUGAS%20KODING/Tugas6_[Bernatd%20Situmeang]/Tampilan%20UI%20Kalkulator.png)
-* Kemudian lakukan implementasi UI sesuai dengan studi kasus yang telah dikerjakan pada materi pemrograman terstruktur
+Untuk membuat tampilan UI nya kita bisa memakai aplikasi Pencil bisa di download pada [link ini](https://pencil.id.softonic.com/),pada aplikasi ini kita akan mmebuat tampilan UI tampilan kalkulator yang nanti hasil nya seperti pada ![gambar ini](file:///D:/BPPTIK/TUGAS%20KODING/Tugas6_[Bernatd%20Situmeang]/Tampilan%20UI%20Kalkulator.png)<br><br>
+* Kemudian lakukan implementasi UI sesuai dengan studi kasus yang telah dikerjakan pada materi pemrograman terstruktur <br>
+Berikut struktur Project Implementasi UI :
+ <br>📂Tugas6_[Bernatd_Situmeang]<br>
+ ┣ 📜Tugas6_[Bernatd_Situmeang].php<br>
+
+ 
+ ## Cara Implementasi 
+ Langkah - Langkah Implementasi 
+ - buat file php setelah itu masukkan kode di bawah ini,kemudian buka di browser masing-masing dan nanti akan terlihat hasil implementasi UI yang sudah kita buat di aplikasi Pencil sebelumnya 
+  ``` <!DOCTYPE html>
+<html>
+<head>
+	<title>Membuat Kalkulator Sederhana Dengan PHP | TUGAS 6 BPPTIK</title>
+  <style>
+  body{
+	background: #F2F2F2;
+	font-family: sans-serif;
+}
+
+.kalkulator{
+	width: 335px;
+	background: #bd8216;
+	margin: 100px auto;
+	padding: 10px 20px 50px 20px;
+	border-radius: 5px;
+	box-shadow: 0px 10px 20px 0px #D1D1D1;
+}
+
+.bil{
+	width: 300px;
+	margin: 5px;
+	border: none;
+	font-size: 16pt;
+	border-radius: 5px;
+	padding: 10px;	
+}
+
+.opt{
+	font-size: 16pt;
+	border: none;
+	width: 215px;
+	margin: 5px;
+	border-radius: 5px;
+	padding: 10px;
+}
+
+.tombol{
+	background: #EC5159;
+	border-top: none;
+	border-right: none;
+	border-left: none;
+	border-radius: 5px;
+	padding: 10px 20px;
+	color: #eee;
+	font-size: 15pt;
+	border-bottom:4px solid #BF3D3D;
+}
+
+.brand{
+	color: #eee;
+	font-size: 11pt;
+	float: right;
+	text-decoration: none;
+	margin: 12px;
+}
+
+.judul{
+	text-align: center;
+	color: #eee;
+	font-weight: normal;
+}
+  </style>
+</head>
+<body>
+	<?php 
+	if(isset($_POST['hitung'])){
+		$bil1 = $_POST['bil1'];
+		$bil2 = $_POST['bil2'];
+		$operasi = $_POST['operasi'];
+		switch ($operasi) {
+			case 'tambah':
+				$hasil = $bil1+$bil2;
+			break;
+			case 'kurang':
+				$hasil = $bil1-$bil2;
+			break;
+			case 'kali':
+				$hasil = $bil1*$bil2;
+			break;
+			case 'bagi':
+				$hasil = $bil1/$bil2;
+			break;			
+		}
+	}
+	?>
+	<div class="kalkulator">
+		<h2 class="judul">KALKULATOR</h2>
+		
+		<form method="post" action="">			
+			<input type="text" name="bil1" class="bil" autocomplete="off" placeholder="Masukkan Bilangan Pertama">
+			<input type="text" name="bil2" class="bil" autocomplete="off" placeholder="Masukkan Bilangan Kedua">
+			<select class="opt" name="operasi">
+				<option value="tambah">+</option>
+				<option value="kurang">-</option>
+				<option value="kali">x</option>
+				<option value="bagi">/</option>
+			</select>
+			<input type="submit" name="hitung" value="Hitung" class="tombol">											
+		</form>
+		<?php if(isset($_POST['hitung'])){ ?>
+			<input type="text" value="<?php echo $hasil; ?>" class="bil">
+		<?php }else{ ?>
+			<input type="text" value="0" class="bil">
+		<?php } ?>			
+	</div>
+</body>
+</html>```
+
+
+
+
